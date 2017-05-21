@@ -1,4 +1,4 @@
-# CommonLibrary
+# Jpush
 
 自己用的库
 
@@ -18,6 +18,6 @@
 在Module的gradle中加入：
 ```groovy
     dependencies {
-        compile 'com.github.like5188:CommonLibrary:1.0.0'
+        compile 'com.github.like5188:Jpush:1.0.0'
     }
 ```
