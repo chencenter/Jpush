@@ -38,3 +38,60 @@
             android:name="JPUSH_APPKEY"
             android:value="您应用的Appkey" /> <!--  </>值来自开发者平台取得的AppKey-->
 ```
+4、添加其他
+```java
+    <!-- Required -->
+    <receiver
+        android:name="cn.jpush.android.service.PushReceiver"
+        android:enabled="true">
+        <intent-filter android:priority="1000">
+            <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
+            <category android:name="${applicationId}" />
+        </intent-filter>
+        <intent-filter>
+            <action android:name="android.intent.action.USER_PRESENT" />
+            <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+        </intent-filter>
+        <!-- Optional -->
+        <intent-filter>
+            <action android:name="android.intent.action.PACKAGE_ADDED" />
+            <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+            <data android:scheme="package" />
+        </intent-filter>
+    </receiver>
+    
+    <!-- Required SDK核心功能-->
+    <activity
+        android:name="cn.jpush.android.ui.PushActivity"
+        android:configChanges="orientation|keyboardHidden"
+        android:exported="false">
+        <intent-filter>
+            <action android:name="cn.jpush.android.ui.PushActivity" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="${applicationId}" />
+        </intent-filter>
+    </activity>
+    
+    <!-- User defined. 用户自定义的广播接收器-->
+    <receiver
+        android:name="com.like.jpush.JpushReceiver"
+        android:enabled="true">
+        <intent-filter>
+            <!--Required 用户注册SDK的intent-->
+            <action android:name="cn.jpush.android.intent.REGISTRATION" />
+            <!--Required 用户接收SDK消息的intent-->
+            <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+            <!--Required 用户接收SDK通知栏信息的intent-->
+            <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+            <!--Required 用户打开自定义通知栏的intent-->
+            <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+            <!--Optional 用户接受Rich Push Javascript 回调函数的intent-->
+            <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" />
+            <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+            <action android:name="cn.jpush.android.intent.CONNECTION" />
+            <category android:name="${applicationId}" />
+        </intent-filter>
+    </receiver>
+```
