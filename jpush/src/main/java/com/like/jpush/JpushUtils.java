@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 import android.os.Handler;
 import android.os.Message;
 
+import com.like.logger.LogLevel;
 import com.like.logger.Logger;
 
 import java.util.LinkedHashSet;
@@ -37,7 +38,24 @@ public class JpushUtils {
 
     private JpushUtils(Context context) {
         mContext = context.getApplicationContext();
+    }
 
+    /**
+     * 初始化，会打印日志
+     */
+    public void debugAndInit() {
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(mContext);
+        Logger.setLogLevel(LogLevel.SIMPLE);
+    }
+
+    /**
+     * 初始化，不打印日志
+     */
+    public void init() {
+        JPushInterface.setDebugMode(false);
+        JPushInterface.init(mContext);
+        Logger.setLogLevel(LogLevel.NONE);
     }
 
     /**

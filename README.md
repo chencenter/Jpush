@@ -19,16 +19,17 @@
 ```groovy
     dependencies {
         compile 'com.github.like5188:Jpush:1.0.0'
+        annotationProcessor rootProject.ext.deps.rxbus_compiler
     }
 ```
-2、添加权限
+2、在AndroidManifest中添加权限
 ```java
     <permission
         android:name="${applicationId}.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature" />
     <uses-permission android:name="${applicationId}.permission.JPUSH_MESSAGE" />
 ```
-3、添加appKey
+3、在AndroidManifest的application标签下添加appKey
 ```java
         <!-- Required  . Enable it you can get statistics data with channel -->
         <meta-data
@@ -38,7 +39,7 @@
             android:name="JPUSH_APPKEY"
             android:value="您应用的Appkey" /> <!--  </>值来自开发者平台取得的AppKey-->
 ```
-4、添加其他
+4、在AndroidManifest的application标签下添加其他核心代码
 ```java
     <!-- Required -->
     <receiver
@@ -94,4 +95,27 @@
             <category android:name="${applicationId}" />
         </intent-filter>
     </receiver>
+```
+5、初始化。用以下两个方法之中的一个。区别是第一个方法会打印日志。
+```java
+    JpushUtils.getInstance(this).debugAndInit();
+    JpushUtils.getInstance(this).init();
+```
+6、设置标签与别名
+```java
+    JpushUtils.getInstance(this).setAlias("like");
+    JpushUtils.getInstance(this).setTag("like1,like2");
+```
+6、接收通知单击事件
+```java
+    在任意一个类中注册
+    RxBus.register(this);
+    在这个类销毁时反注册
+    RxBus.unregister(this);
+    
+    然后用下面的方法接收事件
+    @RxBusSubscribe(JpushReceiver.TAG_CLICK_NOTIFICATION)
+    public void onNotificationClick(Intent intent) {
+        // intent中的内容是由后台决定的。
+    }
 ```
