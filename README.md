@@ -1,6 +1,6 @@
 # Jpush
 
-极光推送工具类
+极光推送工具类。基于jpush-android_v3.0.6.jar、jcore-android_v1.1.3.jar。
 
 ## 使用方法：
 
