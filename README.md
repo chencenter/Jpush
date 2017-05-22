@@ -96,17 +96,22 @@
         </intent-filter>
     </receiver>
 ```
-5、初始化。用以下两个方法之中的一个。区别是第一个方法会打印日志。
+5、初始化。用以下两个方法之中的一个。区别是第一个方法会打印极光推送官方库的日志。
 ```java
     JpushUtils.getInstance(this).debugAndInit();
     JpushUtils.getInstance(this).init();
 ```
-6、设置标签与别名
+6、是否打印本工具类的日志。注意：设置这个标记，会影响所有用了Logger库的库。
 ```java
     JpushUtils.getInstance(this).setAlias("like");
     JpushUtils.getInstance(this).setTags("like1,like2");
 ```
-6、接收通知单击事件
+7、设置标签与别名
+```java
+    JpushUtils.getInstance(this).setAlias("like");
+    JpushUtils.getInstance(this).setTags("like1,like2");
+```
+8、接收通知单击事件
 ```java
     在任意一个类中注册
     RxBus.register(this);

@@ -32,6 +32,6 @@ public class MainActivity extends AppCompatActivity {
     @RxBusSubscribe(JpushReceiver.TAG_CLICK_NOTIFICATION)
     public void onNotificationClick(Intent intent) {
         // intent中的内容是由后台决定的。
-        Logger.i("点击了极光推送的通知：" + intent.getData());
+        Logger.i("Jpush", "点击了极光推送的通知：" + intent.getData());
     }
 }

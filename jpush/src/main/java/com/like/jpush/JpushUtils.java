@@ -6,7 +6,6 @@ import android.net.NetworkInfo;
 import android.os.Handler;
 import android.os.Message;
 
-import com.like.logger.LogLevel;
 import com.like.logger.Logger;
 
 import java.util.LinkedHashSet;
@@ -38,7 +37,6 @@ public class JpushUtils {
 
     private JpushUtils(Context context) {
         mContext = context.getApplicationContext();
-        Logger.setTag("jpush");
     }
 
     /**
@@ -47,7 +45,6 @@ public class JpushUtils {
     public void debugAndInit() {
         JPushInterface.setDebugMode(true);
         JPushInterface.init(mContext);
-        Logger.setLogLevel(LogLevel.SIMPLE);
     }
 
     /**
@@ -56,7 +53,6 @@ public class JpushUtils {
     public void init() {
         JPushInterface.setDebugMode(false);
         JPushInterface.init(mContext);
-        Logger.setLogLevel(LogLevel.NONE);
     }
 
     /**
@@ -68,7 +64,7 @@ public class JpushUtils {
         if (!isValidTagAndAlias(alias)) {
             return;
         }
-        Logger.i("jpush register alias : " + alias);
+        Logger.i("Jpush", "jpush register alias : " + alias);
         // 调用JPush API设置Alias
         mJPushHandler.sendMessage(mJPushHandler.obtainMessage(MSG_SET_ALIAS, alias));
     }
@@ -87,7 +83,7 @@ public class JpushUtils {
             if (!isValidTagAndAlias(sTagItme)) {
                 return;
             }
-            Logger.i("jpush register tag : " + sTagItme);
+            Logger.i("Jpush", "jpush register tag : " + sTagItme);
             tagSet.add(sTagItme);
         }
 
@@ -102,17 +98,17 @@ public class JpushUtils {
         public boolean handleMessage(Message msg) {
             switch (msg.what) {
                 case MSG_SET_ALIAS:
-                    Logger.d("Set alias in handler.");
+                    Logger.d("Jpush", "Set alias in handler.");
                     JPushInterface.setAlias(mContext, (String) msg.obj, mAliasCallback);
                     break;
 
                 case MSG_SET_TAGS:
-                    Logger.d("Set tags in handler.");
+                    Logger.d("Jpush", "Set tags in handler.");
                     JPushInterface.setTags(mContext, (Set<String>) msg.obj, mTagsCallback);
                     break;
 
                 default:
-                    Logger.i("Unhandled msg - " + msg.what);
+                    Logger.i("Jpush", "Unhandled msg - " + msg.what);
             }
             return true;
         }
@@ -126,22 +122,22 @@ public class JpushUtils {
             switch (code) {
                 case 0:
                     logs = "Set tags success";
-                    Logger.i(logs);
+                    Logger.i("Jpush", logs);
                     break;
 
                 case 6002:
                     logs = "Failed to set tags due to timeout. Try again after 60s.";
-                    Logger.i(logs);
+                    Logger.i("Jpush", logs);
                     if (isConnected(mContext)) {
                         mJPushHandler.sendMessageDelayed(mJPushHandler.obtainMessage(MSG_SET_TAGS, tags), 1000 * 60);
                     } else {
-                        Logger.i("No network");
+                        Logger.i("Jpush", "No network");
                     }
                     break;
 
                 default:
                     logs = "Failed with errorCode = " + code;
-                    Logger.e(logs);
+                    Logger.e("Jpush", logs);
             }
         }
 
@@ -155,22 +151,22 @@ public class JpushUtils {
             switch (code) {
                 case 0:
                     logs = "Set alias success";
-                    Logger.i(logs);
+                    Logger.i("Jpush", logs);
                     break;
 
                 case 6002:
                     logs = "Failed to set alias due to timeout. Try again after 60s.";
-                    Logger.i(logs);
+                    Logger.i("Jpush", logs);
                     if (isConnected(mContext)) {
                         mJPushHandler.sendMessageDelayed(mJPushHandler.obtainMessage(MSG_SET_ALIAS, alias), 1000 * 60);
                     } else {
-                        Logger.i("No network");
+                        Logger.i("Jpush", "No network");
                     }
                     break;
 
                 default:
                     logs = "Failed with errorCode = " + code;
-                    Logger.e(logs);
+                    Logger.e("Jpush", logs);
             }
         }
 
