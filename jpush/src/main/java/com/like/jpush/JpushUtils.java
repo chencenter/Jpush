@@ -77,7 +77,7 @@ public class JpushUtils {
      *
      * @param tags 多个tag可以用","隔开，每个 tag 命名长度限制为 40 字节；"" （空字符串）表示取消之前的设置。
      */
-    public void setTag(String tags) {
+    public void setTags(String tags) {
         // ","隔开的多个 转换成 Set
         String[] sArray = tags.split(",");
         Set<String> tagSet = new LinkedHashSet<>();

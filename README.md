@@ -104,7 +104,7 @@
 6、设置标签与别名
 ```java
     JpushUtils.getInstance(this).setAlias("like");
-    JpushUtils.getInstance(this).setTag("like1,like2");
+    JpushUtils.getInstance(this).setTags("like1,like2");
 ```
 6、接收通知单击事件
 ```java

@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
         JpushUtils.getInstance(this).debugAndInit();
         JpushUtils.getInstance(this).setAlias("like");
-        JpushUtils.getInstance(this).setTag("like1,like2");
+        JpushUtils.getInstance(this).setTags("like1,like2");
         RxBus.register(this);
     }
 
