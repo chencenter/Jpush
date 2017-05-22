@@ -29,7 +29,7 @@
         android:protectionLevel="signature" />
     <uses-permission android:name="${applicationId}.permission.JPUSH_MESSAGE" />
 ```
-3、在AndroidManifest的application标签下添加appKey
+3、在AndroidManifest的application标签下添加AppKey，把"您应用的Appkey"替换为你自己的AppKey
 ```java
         <!-- Required  . Enable it you can get statistics data with channel -->
         <meta-data
@@ -103,8 +103,8 @@
 ```
 6、是否打印本工具类的日志。注意：设置这个标记，会影响所有用了Logger库的库。
 ```java
-    JpushUtils.getInstance(this).setAlias("like");
-    JpushUtils.getInstance(this).setTags("like1,like2");
+    Logger.setDebugMode(true);
+    Logger.setDebugMode(false);
 ```
 7、设置标签与别名
 ```java
