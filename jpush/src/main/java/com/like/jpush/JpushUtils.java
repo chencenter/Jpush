@@ -38,6 +38,7 @@ public class JpushUtils {
 
     private JpushUtils(Context context) {
         mContext = context.getApplicationContext();
+        Logger.setTag("jpush");
     }
 
     /**
