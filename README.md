@@ -27,7 +27,7 @@
         defaultConfig {
             // ……    
             manifestPlaceholders = [
-                    "jpushAppKey": "7b8f5e20265c638491e91d34",
+                    "jpushAppKey": "你应用的appKey",
             ]
         }
 ```
