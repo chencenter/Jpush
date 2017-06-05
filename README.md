@@ -18,14 +18,14 @@
 在Module的gradle中加入：
 ```groovy
     dependencies {
-        compile 'com.github.like5188:Jpush:1.0.0'
+        compile 'com.github.like5188:Jpush:[Latest release](https://github.com/like5188/Jpush/releases/latest) (< click it)'
         annotationProcessor rootProject.ext.deps.rxbus_compiler
     }
 ```
 2、在module的gradle文件中添加
 ```java
         defaultConfig {
-            ……    
+            // ……    
             manifestPlaceholders = [
                     "jpushAppKey": "7b8f5e20265c638491e91d34",
             ]
