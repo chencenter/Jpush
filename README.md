@@ -18,7 +18,7 @@
 在Module的gradle中加入：
 ```groovy
     dependencies {
-        compile 'com.github.like5188:Jpush:[Latest release](https://github.com/like5188/Jpush/releases/latest) (< click it)'
+        compile 'com.github.like5188:Jpush:[Latest release](https://github.com/tianzhijiexian/ShareLoginLib/releases) (< click it)'
         annotationProcessor rootProject.ext.deps.rxbus_compiler
     }
 ```
