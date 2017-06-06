@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <meta-data
+            android:name="JPUSH_APPKEY"
+            android:value="7b8f5e20265c638491e91d34" />
     </application>
 
 </manifest>

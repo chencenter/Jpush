@@ -22,14 +22,11 @@
         annotationProcessor rootProject.ext.deps.rxbus_compiler
     }
 ```
-2、在module的gradle文件中添加
+2、在AndroidManifest.xml文件的application标签内添加
 ```java
-        defaultConfig {
-            // ……    
-            manifestPlaceholders = [
-                    "jpushAppKey": "你应用的appKey",
-            ]
-        }
+    <meta-data
+        android:name="JPUSH_APPKEY"
+        android:value="你应用的appKey" />  
 ```
 3、初始化。用以下两个方法之中的一个。区别是第一个方法会打印极光推送官方库的日志。
 ```java

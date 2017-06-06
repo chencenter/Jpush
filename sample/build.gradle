@@ -11,10 +11,6 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-        manifestPlaceholders = [
-                "jpushAppKey": "7b8f5e20265c638491e91d34",
-        ]
     }
     buildTypes {
         release {
