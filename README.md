@@ -18,7 +18,7 @@
 在Module的gradle中加入：
 ```groovy
     dependencies {
-        compile 'com.github.like5188:Jpush:1.0.1'
+        compile 'com.github.like5188:Jpush:1.0.2'
         annotationProcessor rootProject.ext.deps.rxbus_compiler
     }
 ```
