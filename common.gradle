@@ -9,11 +9,6 @@ ext {
     deps = [
             appcompat_v7            : "com.android.support:appcompat-v7:${compileSdkVersion}.+",
             junit                   : "junit:junit:4.12",
-
-            // 自己写的库
-            rxbus_compiler          : "com.github.like5188.RxBus:rxbus-compiler:1.0.0",
-            rxbus                   : "com.github.like5188.RxBus:rxbus:1.0.0",
-            Logger                  : "com.github.like5188:Logger:1.0.0",
     ]
 
 }

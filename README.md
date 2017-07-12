@@ -58,8 +58,8 @@
 ```
 7、引用的库
 ```java
-    compile rootProject.ext.deps.Logger
-    compile rootProject.ext.deps.rxbus
+    compile 'com.github.like5188:Logger:1.0.3'
+    compile 'com.github.like5188.RxBus:rxbus:1.0.1'
 ```
 # License
 ```xml
