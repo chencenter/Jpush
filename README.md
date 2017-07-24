@@ -18,8 +18,8 @@
 在Module的gradle中加入：
 ```groovy
     dependencies {
-        compile 'com.github.like5188:Jpush:1.0.2'
-        annotationProcessor rootProject.ext.deps.rxbus_compiler
+        compile 'com.github.like5188:Jpush:1.0.3'
+        annotationProcessor 'com.github.like5188.RxBus:rxbus-compiler:1.0.2'
     }
 ```
 2、在AndroidManifest.xml文件的application标签内添加
@@ -58,8 +58,8 @@
 ```
 7、引用的库
 ```java
-    compile 'com.github.like5188:Logger:1.0.3'
-    compile 'com.github.like5188.RxBus:rxbus:1.0.1'
+    compile 'com.github.like5188:Logger:1.0.4'
+    compile 'com.github.like5188.RxBus:rxbus:1.0.2'
 ```
 # License
 ```xml
