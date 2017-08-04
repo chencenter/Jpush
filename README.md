@@ -18,8 +18,8 @@
 在Module的gradle中加入：
 ```groovy
     dependencies {
-        compile 'com.github.like5188:Jpush:1.2.0'
-        annotationProcessor 'com.github.like5188.RxBus:rxbus-compiler:1.2.0'
+        compile 'com.github.like5188:Jpush:1.3.1'
+        annotationProcessor 'com.github.like5188.RxBus:rxbus-compiler:1.3.1'// 用于接收返回结果
     }
 ```
 2、在AndroidManifest.xml文件的application标签内添加
@@ -55,11 +55,6 @@
     public void onNotificationClick(Intent intent) {
         // intent中的内容是由后台决定的。
     }
-```
-7、引用的库
-```java
-    compile 'com.github.like5188:Logger:1.2.0'
-    compile 'com.github.like5188.RxBus:rxbus:1.2.0'
 ```
 # License
 ```xml

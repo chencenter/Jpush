@@ -27,14 +27,15 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile rootProject.ext.deps.appcompat_v7
-    testCompile rootProject.ext.deps.junit
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation rootProject.ext.deps.test
+    androidTestImplementation rootProject.ext.deps.espresso
+    testImplementation rootProject.ext.deps.junit
+    implementation rootProject.ext.deps.appcompat_v7
+    implementation rootProject.ext.deps.constraint
+    implementation rootProject.ext.deps.kotlin
 
-    annotationProcessor 'com.github.like5188.RxBus:rxbus-compiler:1.2.0'
+    annotationProcessor 'com.github.like5188.RxBus:rxbus-compiler:1.3.1'
 
     // Error:Conflict with dependency 'com.google.code.findbugs:jsr305' in project ':app'. Resolved versions for app (3.0.1) and test app (2.0.1) differ. See http://g.co/androidstudio/app-test-app-conflict for details.
     androidTestCompile 'com.google.code.findbugs:jsr305:3.0.2'
