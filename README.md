@@ -18,8 +18,8 @@
 在Module的gradle中加入：
 ```groovy
     dependencies {
-        compile 'com.github.like5188:Jpush:1.3.1'
-        annotationProcessor 'com.github.like5188.RxBus:rxbus-compiler:1.3.1'// 用于接收返回结果
+        compile 'com.github.like5188:Jpush:2.0.0'
+        annotationProcessor 'com.github.like5188.RxBus:rxbus-compiler:2.0.0'// 用于接收返回结果
     }
 ```
 2、在AndroidManifest.xml文件的application标签内添加
