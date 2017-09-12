@@ -22,6 +22,7 @@ import cn.jpush.android.api.JPushInterface;
  */
 public class JpushReceiver extends BroadcastReceiver {
     public static final String TAG_CLICK_NOTIFICATION = "TAG_CLICK_NOTIFICATION";
+    public static final String TAG_RECEIVE_NOTIFICATION = "TAG_RECEIVE_NOTIFICATION";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -36,6 +37,7 @@ public class JpushReceiver extends BroadcastReceiver {
         } else if (JPushInterface.ACTION_MESSAGE_RECEIVED.equals(intent.getAction())) {
             Logger.d("Jpush", "[MyReceiver] 接收到推送下来的自定义消息: " + bundle.getString(JPushInterface.EXTRA_MESSAGE));
             // processCustomMessage(context, bundle);
+            RxBus.post(TAG_RECEIVE_NOTIFICATION, bundle);
 
         } else if (JPushInterface.ACTION_NOTIFICATION_RECEIVED.equals(intent.getAction())) {
             Logger.d("Jpush", "[MyReceiver] 接收到推送下来的通知");
