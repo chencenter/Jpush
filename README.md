@@ -55,6 +55,10 @@
     public void onNotificationClick(Intent intent) {
         // intent中的内容是由后台决定的。
     }
+    @RxBusSubscribe(JpushReceiver.TAG_RECEIVE_NOTIFICATION)
+    public void onReceiveNotification(Bundle bundle) {
+        // bundle中的内容是由后台决定的。
+    }
 ```
 # License
 ```xml
